@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #Main {
+        width: 100%;
+        height: 100vh;
+        background-color: lightblue;
+      }
+      #form {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        justify-content: center;
+      }
+      input {
+        margin: 10px;
+        padding: 10px;
+      }
+      #button {
+        width: 200px;
+        position: relative;
+      }
+      .passwordRed:focus {
+        outline: none;
+        box-shadow: none;
+        border: 5px solid red;
+      }
+      .password:focus {
+        outline: none;
+        box-shadow: none;
+        border: 5px solid green;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="Main">
+      <div id="form">
+        <input type="text" placeholder="Name" />
+        <input type="text" placeholder="Email" />
+        <input
+          type="password"
+          placeholder="Password -javascript"
+          id="password"
+          required
+        />
+        <button id="button">Submit</button>
+      </div>
+    </div>
+    <script>
+      const password = document.getElementById("password");
+      password.addEventListener("keyup", (evt) => {
+        if (password.value == "javascript") {
+          password.classList.add("password");
+          password.classList.remove("passworRed");
+        } else {
+          console.log(password.value);
+          password.classList.remove("password");
+          password.classList.add("passwordRed");
+          const btn = document.getElementById("button");
+          btn.addEventListener("mouseover", (event) => {
+            const m = Math.floor(Math.random() * 200) + 1;
+            btn.style.left = m + "px";
+            btn.style.top = m + "px";
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
